@@ -112,4 +112,20 @@ def main():
 
         option = int(input("Choose an option:(1: Print Path, 2: Generate Another Puzzle, 3: Exit): "))
 
-        
+        if option == 1:
+            path = a_star(maze, (0, 0), (n-1, n-1))
+            if path:
+                print("Path found:")
+                print_colored_path(maze, path)
+            else:
+                print("No path found.")
+        elif option == 2:
+            continue
+        elif option == 3:
+            print("Exiting the game.")
+            break
+        else:
+            print("Invalid option. Please choose again.")
+
+if __name__ == "__main__":
+    main()
