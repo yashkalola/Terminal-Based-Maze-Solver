@@ -35,4 +35,19 @@ def a_star(maze, start, end):
     heapq.heappush(q, (0, start))
     visited = set()
     parent = {}
-    
+
+    while q:
+        current_cost, current = heapq.heappop(q)
+
+        if current == end:
+            path = []
+            while current in parent:
+                path.insert(0, current)
+                current = parent[current]
+            path.insert(0, start)
+            return path
+        
+        if current in visited:
+            continue
+
+        visited.add(current)
