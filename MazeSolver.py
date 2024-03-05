@@ -35,6 +35,4 @@ def a_star(maze, start, end):
     heapq.heappush(q, (0, start))
     visited = set()
     parent = {}
-
-    while q:
-        current_cost, current = heapqfs
+    
