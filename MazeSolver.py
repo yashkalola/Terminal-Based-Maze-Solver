@@ -59,3 +59,13 @@ def a_star(maze, start, end):
                 parent[neighbor] = current
 
     return None
+
+def neighbors(cell, maze):
+    row, col = cell
+    n = len(maze)
+    m = len(maze[0])
+
+    potential_neighbors = [(row-1, col), (row+1, col), (row, col-1), (row, col+1)]
+    valid_neighbors = [(r, c) for r, c in potential_neighbors if 0 <= r < n and 0 <= c < m and maze[r][c] != RED + '▓' + ENDC]
+
+    return valid_neighbors
