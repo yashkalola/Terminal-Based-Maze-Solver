@@ -69,3 +69,20 @@ def neighbors(cell, maze):
     valid_neighbors = [(r, c) for r, c in potential_neighbors if 0 <= r < n and 0 <= c < m and maze[r][c] != RED + '▓' + ENDC]
 
     return valid_neighbors
+
+def print_colored_path(maze, path):
+    for row in range(len(maze)):
+        for col in range(len(maze[0])):
+            if (row, col) == tuple(path[0]):
+                maze[row][col] = GREEN + 'S' + ENDC
+            elif (row, col) == tuple(path[-1]):
+                maze[row][col] = GREEN + 'E' + ENDC
+            elif (row, col) in path:
+                maze[row][col] = GREEN + '◍' + ENDC  # Path
+            elif maze[row][col] == BLUE + '◌' + ENDC:
+                maze[row][col] = BLUE + '◌' + ENDC  # Open space
+            elif maze[row][col] == RED + '▓' + ENDC:
+                maze[row][col] = RED + '▓' + ENDC  # Walls
+
+    print_colored_maze(maze)
+
