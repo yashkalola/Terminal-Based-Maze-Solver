@@ -51,3 +51,11 @@ def a_star(maze, start, end):
             continue
 
         visited.add(current)
+
+        for neighbor in neighbors(current, maze):
+            if neighbor not in visited:
+                cost = current_cost + 1 + heuristic(neighbor, end)
+                heapq.heappush(q, (cost, neighbor))
+                parent[neighbor] = current
+
+    return None
