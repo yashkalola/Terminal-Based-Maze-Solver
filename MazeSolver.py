@@ -102,3 +102,14 @@ def mark_colored_path(maze, path):
 
     return maze
 
+def main():
+    while True:
+        n = int(input("Enter the size of the maze (n * n): "))
+        maze = generate_maze(n)
+
+        print("Generated Maze:")
+        print_colored_maze(maze)
+
+        option = int(input("Choose an option:(1: Print Path, 2: Generate Another Puzzle, 3: Exit): "))
+
+        
